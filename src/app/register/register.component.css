@@ -1,0 +1,5 @@
+.registercontainer {
+    display: flex;
+    width: 333px;
+    column-gap: 100px;
+}
