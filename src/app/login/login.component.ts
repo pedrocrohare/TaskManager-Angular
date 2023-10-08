@@ -17,27 +17,7 @@ export class LoginComponent {
   passwordControlLogin = new FormControl('');
   password: String = "";
 
-  constructor(private authService: AuthService, private router: Router) {
-    this.emailControlLogin.valueChanges.subscribe(value => {
-
-      if (value === null) {
-        alert("El valor es nulo")
-      } else {
-        this.email = value;
-      }
-    });
-
-    this.passwordControlLogin.valueChanges.subscribe(value => {
-      if (value === null) {
-        alert("El valor es nulo")
-      } else {
-        this.password = value;
-      }
-    });
-
-
-
- }  // Inject AuthService
+  constructor(private authService: AuthService, private router: Router) { }
 
 login(event: Event) {
   event.preventDefault();

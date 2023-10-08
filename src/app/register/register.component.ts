@@ -18,26 +18,7 @@ export class RegisterComponent {
   passwordControl = new FormControl('');
   password: String = "";
 
-  constructor(private authService: AuthService, private router: Router) {
-
-    this.emailControl.valueChanges.subscribe(value => {
-
-      if (value === null) {
-        alert("El valor es nulo")
-      } else {
-        this.email = value;
-      }
-    });
-
-    this.passwordControl.valueChanges.subscribe(value => {
-      if (value === null) {
-        alert("El valor es nulo")
-      } else {
-        this.password = value;
-      }
-    });
-
-  }
+  constructor(private authService: AuthService, private router: Router) { }
 
   register(event: Event) {
     event.preventDefault();
