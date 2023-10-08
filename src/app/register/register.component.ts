@@ -27,9 +27,6 @@ export class RegisterComponent {
     const password = this.password.trim();
     console.log(this.authService);
 
-
     this.authService.register(email, password);
-
   }
-
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Auth, provideAuth, getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from '@angular/fire/auth';
+import { Auth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from '@angular/fire/auth';
 import { Router } from '@angular/router';
 
 @Injectable({
