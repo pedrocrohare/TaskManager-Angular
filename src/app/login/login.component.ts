@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
+import { FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -8,10 +10,45 @@ import { AuthService } from '../auth.service';
 })
 export class LoginComponent {
 
-  constructor(private authService: AuthService) { }  // Inject AuthService
+
+  emailControl = new FormControl('');
+  email: String = "";
+
+  passwordControl = new FormControl('');
+  password: String = "";
+
+  constructor(private authService: AuthService, private router: Router) {
+    this.emailControl.valueChanges.subscribe(value => {
+
+      if (value === null) {
+        alert("El valor es nulo")
+      } else {
+        this.email = value;
+      }
+    });
+
+    this.passwordControl.valueChanges.subscribe(value => {
+      if (value === null) {
+        alert("El valor es nulo")
+      } else {
+        this.password = value;
+      }
+    });
 
 
- login(email: string, password: string) {
-    this.authService.login(email, password);
+
+ }  // Inject AuthService
+
+login(event: Event) {
+    event.preventDefault();
+
+    const email = this.email.trim();
+    const password = this.password.trim();
+
+    console.log(this.authService)
+
+
+
+    this.authService.loginWith(email, password);
   }
 }
