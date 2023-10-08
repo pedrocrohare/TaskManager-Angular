@@ -15,8 +15,6 @@ export class AuthService {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
-        this.router.navigateByUrl('/home');
-
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -32,13 +30,12 @@ export class AuthService {
         const user = userCredential.user;
         console.log(user);
         this.router.navigateByUrl('/tasks');
-        
+
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
-
       });
   }
 }
