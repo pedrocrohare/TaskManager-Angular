@@ -11,14 +11,14 @@ import { FormControl } from '@angular/forms';
 export class LoginComponent {
 
 
-  emailControl = new FormControl('');
+  emailControlLogin = new FormControl('');
   email: String = "";
 
-  passwordControl = new FormControl('');
+  passwordControlLogin = new FormControl('');
   password: String = "";
 
   constructor(private authService: AuthService, private router: Router) {
-    this.emailControl.valueChanges.subscribe(value => {
+    this.emailControlLogin.valueChanges.subscribe(value => {
 
       if (value === null) {
         alert("El valor es nulo")
@@ -27,7 +27,7 @@ export class LoginComponent {
       }
     });
 
-    this.passwordControl.valueChanges.subscribe(value => {
+    this.passwordControlLogin.valueChanges.subscribe(value => {
       if (value === null) {
         alert("El valor es nulo")
       } else {
@@ -40,15 +40,11 @@ export class LoginComponent {
  }  // Inject AuthService
 
 login(event: Event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const email = this.email.trim();
-    const password = this.password.trim();
+  const email = this.emailControlLogin.value?.trim() || '';
+  const password = this.passwordControlLogin.value?.trim() || '';
 
-    console.log(this.authService)
-
-
-
-    this.authService.loginWith(email, password);
-  }
+  this.authService.login(email, password);
+}
 }

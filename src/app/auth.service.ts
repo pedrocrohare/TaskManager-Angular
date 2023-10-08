@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Auth, provideAuth, getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } from '@angular/fire/auth';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
-  constructor(private auth: Auth) {
+  constructor(private auth: Auth, private router: Router) {
   }
 
   register(email: string, password: string) {
@@ -14,7 +15,7 @@ export class AuthService {
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
-        console.log("REGISTRAR BIEN")
+        this.router.navigateByUrl('/home');
 
       })
       .catch((error) => {
@@ -25,35 +26,18 @@ export class AuthService {
       });
   }
 
-  registerWith(email: string, password: string) {
-
-    this.register(email, password).then(() => {
-        console.log("Register ok");
-      })
-  } 
-
-  loginWith(email: string, password: string) {
-
-    this.login(email, password).then(() => {
-        console.log("Register ok");
-      })
-  } 
-
   login(email: string, password: string) {
     return signInWithEmailAndPassword(this.auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
         console.log(user);
-
-        console.log("LOGIN BIEEEN")
-
+        this.router.navigateByUrl('/tasks');
+        
       })
       .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
         console.log(errorCode, errorMessage);
-
-console.log("LOGIN ERRORRRR")
 
       });
   }
