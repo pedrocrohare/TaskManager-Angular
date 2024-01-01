@@ -2,10 +2,13 @@
 <div>
 <ul>
 
-<li *ngFor="let task of tasks$ | async">
-      {{ task["title"] }} <!-- assuming title is a field in your Task document -->
-    </li>
-
-
+  <div class="container">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let task of tasks$ | async">
+        {{ task.title }}
+      </li>
+    </ul>
+  </div>
+  
 </ul>
 </div>

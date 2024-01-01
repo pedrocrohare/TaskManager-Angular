@@ -1,1 +1,23 @@
-p { text-align: center; }
+.container {
+
+    margin-top: 50px;
+
+}
+
+@media only screen and (max-width: 768px) {
+    .container {
+      width: 100%;
+      padding: 0 15px;
+      margin-top: 50px;
+
+    }
+  }
+  
+  @media only screen and (min-width: 769px) {
+    .container {
+      width: 600px; /* Adjust as needed */
+      margin: 0 auto; /* Center the container */
+      margin-top: 50px;
+    }
+  }
+  
