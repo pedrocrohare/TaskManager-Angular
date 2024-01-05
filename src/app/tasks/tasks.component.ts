@@ -7,6 +7,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 interface Task {
   title: string,
+  description: string,
   id: string,
   uid: string
 };
@@ -38,6 +39,7 @@ export class TasksComponent implements OnInit {
           map(tasks => tasks.map(task => ({
             id: task.id,
             title: task['title'],
+            description: task['description'],
             uid: task['uid'],
           }) as Task)),
           map(tasks => tasks.filter(task => task.uid === userID))

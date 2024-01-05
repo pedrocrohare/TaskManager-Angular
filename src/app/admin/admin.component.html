@@ -1,0 +1,14 @@
+<app-header></app-header>
+<div class="admin-container">
+  <h1>Admin Dashboard</h1>
+  <div class="admin-section">
+    <button (click)="toggleSection('users')">Manage Users</button>
+    <button (click)="toggleSection('content')">Manage Content</button>
+  </div>
+  <div *ngIf="activeSection === 'users'" class="users-section">
+    <!-- Users management UI -->
+  </div>
+  <div *ngIf="activeSection === 'content'" class="content-section">
+    <!-- Content management UI -->
+  </div>
+</div>

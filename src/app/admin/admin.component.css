@@ -1,0 +1,33 @@
+.admin-container {
+    padding: 20px;
+    background: #f8f9fa;
+  }
+  
+  .admin-section button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    margin: 5px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .admin-section button:hover {
+    background-color: #0056b3;
+  }
+  
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  
+  /* Additional styles for users and content sections */
+  .users-section, .content-section {
+    margin-top: 20px;
+    padding: 15px;
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  }
+  
